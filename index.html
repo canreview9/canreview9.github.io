@@ -111,6 +111,8 @@
     }
 
     .watcha .icon { background: var(--watcha); }
+    .streaming .icon { background: #1769c2; }
+    .info .icon { background: #444; }
     .youtube .icon { background: var(--youtube); }
 
     .copy { min-width: 0; padding: 0 10px; }
@@ -118,12 +120,12 @@
     .copy span {
       display: block;
       margin-top: 2px;
-      overflow: hidden;
+      overflow-wrap: anywhere;
       color: var(--muted);
       font-size: .88rem;
       line-height: 1.35;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      white-space: normal;
     }
 
     .arrow { color: #8d8d8d; font-size: 1.3rem; text-align: right; }
@@ -158,20 +160,47 @@
     </header>
 
     <section class="links" aria-label="CANREVIEW 링크">
-      <a class="link watcha" href="https://watcha.com/af/0/MYXJil" target="_blank" rel="sponsored noopener">
-        <span class="icon" aria-hidden="true">W</span>
+      <a class="link movie info" href="https://m.moviechart.co.kr/info/movieinfo/detail/20265410" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">i</span>
         <span class="copy">
-          <strong>〈서브스턴스〉 왓챠에서 보기</strong>
-          <span>작품 감상 페이지로 이동</span>
+          <strong>〈아더 마미〉 개봉·예매 정보</strong>
+          <span>2026.11.18 국내 개봉 예정 · 일반 링크</span>
         </span>
         <span class="arrow" aria-hidden="true">›</span>
       </a>
 
-      <a class="link watcha" href="https://watcha.com/af/0/d8_wsZ" target="_blank" rel="sponsored noopener">
+      <a class="link movie info" href="https://www.justwatch.com/kr/TV-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/ibeul" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">i</span>
+        <span class="copy">
+          <strong>〈EVIL · 이블〉 국내 시청처 확인</strong>
+          <span>국내 스트리밍 미확인 · 정보 링크</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="link movie streaming" href="https://www.coupangplay.com/content/9b26a526-443f-4376-a85f-52037f8e7ffc" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">▶</span>
+        <span class="copy">
+          <strong>〈해리 포터와 마법사의 돌〉 쿠팡플레이에서 보기</strong>
+          <span>영화 1편 · 일반 링크 · 이용 조건 확인</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="link movie info" href="https://www.justwatch.com/kr/TV-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/z-nation" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">i</span>
+        <span class="copy">
+          <strong>〈Z Nation · Z 네이션〉 국내 시청처 확인</strong>
+          <span>국내 스트리밍 미확인 · 정보 링크</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="link movie watcha" href="https://watcha.com/af/0/MYXJil" target="_blank" rel="sponsored noopener">
         <span class="icon" aria-hidden="true">W</span>
         <span class="copy">
-          <strong>〈테이큰〉 왓챠에서 보기</strong>
-          <span>작품 감상 페이지로 이동</span>
+          <strong>〈서브스턴스〉 왓챠에서 보기</strong>
+          <span>왓챠 큐레이터 제휴 링크</span>
         </span>
         <span class="arrow" aria-hidden="true">›</span>
       </a>
@@ -196,8 +225,9 @@
     </section>
 
     <p class="disclosure">
-      이 페이지는 왓챠 큐레이터 활동의 일환으로,<br>
-      구매 시 이에 따른 일정액의 수수료를 제공받습니다.
+      ‘제휴 링크’로 표시된 왓챠 링크를 통한 구매 시 일정액의 수수료를 제공받습니다.<br>
+      일반·정보 링크에는 제휴 수익이 연결되어 있지 않습니다.<br>
+      시청 정보 확인: 2026.11.16 · 제공 여부와 이용 조건은 변경될 수 있습니다.
     </p>
 
     <footer>© CANREVIEW</footer>
@@ -213,30 +243,32 @@
         const youtube = links.querySelector(".youtube");
         const fragment = document.createDocumentFragment();
 
-        if (movies.length > 0) {
+        if (!Array.isArray(movies)) return;
+
+        if (movies.some(movie => movie.affiliate === true)) {
           document.querySelector(".disclosure")?.removeAttribute("hidden");
         }
 
         for (const movie of movies) {
           const link = document.createElement("a");
-          link.className = "link watcha";
+          link.className = `link movie ${movie.provider || "watcha"}`;
           link.href = movie.url;
           link.target = "_blank";
-          link.rel = "sponsored noopener";
+          link.rel = movie.affiliate === true ? "sponsored noopener" : "noopener";
 
           const icon = document.createElement("span");
           icon.className = "icon";
           icon.setAttribute("aria-hidden", "true");
-          icon.textContent = "W";
+          icon.textContent = movie.icon || "W";
 
           const copy = document.createElement("span");
           copy.className = "copy";
 
           const title = document.createElement("strong");
-          title.textContent = `〈${movie.title}〉 왓챠에서 보기`;
+          title.textContent = `〈${movie.title}〉 ${movie.label || "왓챠에서 보기"}`;
 
           const description = document.createElement("span");
-          description.textContent = "작품 감상 페이지로 이동";
+          description.textContent = movie.description || "작품 감상 페이지로 이동";
 
           const arrow = document.createElement("span");
           arrow.className = "arrow";
@@ -248,7 +280,7 @@
           fragment.append(link);
         }
 
-        links.querySelectorAll(".watcha").forEach(link => link.remove());
+        links.querySelectorAll(".movie").forEach(link => link.remove());
         links.insertBefore(fragment, youtube);
       } catch (_) {
         // 네트워크 오류 시 HTML에 포함된 기존 링크를 그대로 유지합니다.
@@ -257,3 +289,4 @@
   </script>
 </body>
 </html>
+

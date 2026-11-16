@@ -1,10 +1,48 @@
 [
   {
-    "title": "서브스턴스",
-    "url": "https://watcha.com/af/0/MYXJil"
+    "title": "아더 마미",
+    "url": "https://m.moviechart.co.kr/info/movieinfo/detail/20265410",
+    "label": "개봉·예매 정보",
+    "description": "2026.11.18 국내 개봉 예정 · 일반 링크",
+    "provider": "info",
+    "icon": "i",
+    "affiliate": false
   },
   {
-    "title": "테이큰",
-    "url": "https://watcha.com/af/0/d8_wsZ"
+    "title": "EVIL · 이블",
+    "url": "https://www.justwatch.com/kr/TV-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/ibeul",
+    "label": "국내 시청처 확인",
+    "description": "국내 스트리밍 미확인 · 정보 링크",
+    "provider": "info",
+    "icon": "i",
+    "affiliate": false
+  },
+  {
+    "title": "해리 포터와 마법사의 돌",
+    "url": "https://www.coupangplay.com/content/9b26a526-443f-4376-a85f-52037f8e7ffc",
+    "label": "쿠팡플레이에서 보기",
+    "description": "영화 1편 · 일반 링크 · 이용 조건 확인",
+    "provider": "streaming",
+    "icon": "▶",
+    "affiliate": false
+  },
+  {
+    "title": "Z Nation · Z 네이션",
+    "url": "https://www.justwatch.com/kr/TV-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/z-nation",
+    "label": "국내 시청처 확인",
+    "description": "국내 스트리밍 미확인 · 정보 링크",
+    "provider": "info",
+    "icon": "i",
+    "affiliate": false
+  },
+  {
+    "title": "서브스턴스",
+    "url": "https://watcha.com/af/0/MYXJil",
+    "label": "왓챠에서 보기",
+    "description": "왓챠 큐레이터 제휴 링크",
+    "provider": "watcha",
+    "icon": "W",
+    "affiliate": true
   }
 ]
+
