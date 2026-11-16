@@ -10,11 +10,11 @@
   },
   {
     "title": "EVIL · 이블",
-    "url": "https://www.justwatch.com/kr/TV-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/ibeul",
-    "label": "국내 시청처 확인",
-    "description": "국내 스트리밍 미확인 · 정보 링크",
-    "provider": "info",
-    "icon": "i",
+    "url": "https://www.coupangplay.com/content/8f3edbf3-6e4b-4fe0-ace4-cdd1aacd6509",
+    "label": "쿠팡플레이에서 보기",
+    "description": "일반 링크 · 이용 조건 확인",
+    "provider": "streaming",
+    "icon": "▶",
     "affiliate": false
   },
   {
@@ -24,15 +24,6 @@
     "description": "영화 1편 · 일반 링크 · 이용 조건 확인",
     "provider": "streaming",
     "icon": "▶",
-    "affiliate": false
-  },
-  {
-    "title": "Z Nation · Z 네이션",
-    "url": "https://www.justwatch.com/kr/TV-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/z-nation",
-    "label": "국내 시청처 확인",
-    "description": "국내 스트리밍 미확인 · 정보 링크",
-    "provider": "info",
-    "icon": "i",
     "affiliate": false
   },
   {
