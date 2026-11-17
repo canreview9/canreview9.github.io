@@ -12,7 +12,7 @@
     "title": "EVIL · 이블",
     "url": "https://www.coupangplay.com/content/8f3edbf3-6e4b-4fe0-ace4-cdd1aacd6509",
     "label": "쿠팡플레이에서 보기",
-    "description": "일반 링크 · 이용 조건 확인",
+    "description": "",
     "provider": "streaming",
     "icon": "▶",
     "affiliate": false
@@ -21,7 +21,7 @@
     "title": "해리 포터와 마법사의 돌",
     "url": "https://www.coupangplay.com/content/9b26a526-443f-4376-a85f-52037f8e7ffc",
     "label": "쿠팡플레이에서 보기",
-    "description": "영화 1편 · 일반 링크 · 이용 조건 확인",
+    "description": "",
     "provider": "streaming",
     "icon": "▶",
     "affiliate": false
@@ -30,10 +30,9 @@
     "title": "서브스턴스",
     "url": "https://watcha.com/af/0/MYXJil",
     "label": "왓챠에서 보기",
-    "description": "왓챠 큐레이터 제휴 링크",
+    "description": "",
     "provider": "watcha",
     "icon": "W",
     "affiliate": true
   }
 ]
-

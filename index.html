@@ -45,8 +45,8 @@
     header { text-align: center; margin-bottom: 30px; }
 
     .avatar {
-      display: grid;
-      place-items: center;
+      display: block;
+      object-fit: cover;
       width: 76px;
       height: 76px;
       margin: 0 auto 16px;
@@ -154,7 +154,7 @@
 <body>
   <main>
     <header>
-      <div class="avatar" aria-hidden="true">CR</div>
+      <img class="avatar" src="canreview-profile.jpg" alt="캔리뷰 프로필">
       <h1>CANREVIEW</h1>
       <p class="handle">영화·드라마, 짧고 재밌게</p>
     </header>
@@ -173,7 +173,6 @@
         <span class="icon" aria-hidden="true">▶</span>
         <span class="copy">
           <strong>〈EVIL · 이블〉 쿠팡플레이에서 보기</strong>
-          <span>일반 링크 · 이용 조건 확인</span>
         </span>
         <span class="arrow" aria-hidden="true">›</span>
       </a>
@@ -182,7 +181,6 @@
         <span class="icon" aria-hidden="true">▶</span>
         <span class="copy">
           <strong>〈해리 포터와 마법사의 돌〉 쿠팡플레이에서 보기</strong>
-          <span>영화 1편 · 일반 링크 · 이용 조건 확인</span>
         </span>
         <span class="arrow" aria-hidden="true">›</span>
       </a>
@@ -193,7 +191,6 @@
         <span class="icon" aria-hidden="true">W</span>
         <span class="copy">
           <strong>〈서브스턴스〉 왓챠에서 보기</strong>
-          <span>왓챠 큐레이터 제휴 링크</span>
         </span>
         <span class="arrow" aria-hidden="true">›</span>
       </a>
@@ -218,7 +215,7 @@
     </section>
 
     <p class="disclosure">
-      ‘제휴 링크’로 표시된 왓챠 링크를 통한 구매 시 일정액의 수수료를 제공받습니다.<br>
+      〈서브스턴스〉 왓챠 링크를 통한 구매 시 일정액의 수수료를 제공받습니다.<br>
       일반·정보 링크에는 제휴 수익이 연결되어 있지 않습니다.<br>
       시청 정보 확인: 2026.11.16 · 제공 여부와 이용 조건은 변경될 수 있습니다.
     </p>
@@ -261,14 +258,15 @@
           title.textContent = `〈${movie.title}〉 ${movie.label || "왓챠에서 보기"}`;
 
           const description = document.createElement("span");
-          description.textContent = movie.description || "작품 감상 페이지로 이동";
+          description.textContent = movie.description || "";
 
           const arrow = document.createElement("span");
           arrow.className = "arrow";
           arrow.setAttribute("aria-hidden", "true");
           arrow.textContent = "›";
 
-          copy.append(title, description);
+          copy.append(title);
+          if (movie.description) copy.append(description);
           link.append(icon, copy, arrow);
           fragment.append(link);
         }
